@@ -2,7 +2,7 @@ version: 2.1
 orbs:
   aws-cli: circleci/aws-cli@4.0
 jobs:
-  aws-cli-example:
+  aws-cli-setup:
     executor: aws-cli/default
     steps:
       - checkout
@@ -10,9 +10,14 @@ jobs:
           profile_name: default
           aws_access_key_id: AWS_ACCESS_KEY
           aws_secret_access_key: AWS_SECRET_KEY
+
+  start-instance:
+    executor: aws-cli-setup
+    steps:
       - run: aws s3 ls
+
 workflows:
   aws-cli:
     jobs:
-      - aws-cli-example:
+      - aws-cli:
           context: aws
