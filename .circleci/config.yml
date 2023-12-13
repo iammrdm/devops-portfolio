@@ -12,7 +12,7 @@ jobs:
           aws_secret_access_key: AWS_SECRET_KEY
 
   start-instance:
-    executor: aws-cli-setup
+    executor: aws-cli/default
     steps:
       - run: aws s3 ls
 
