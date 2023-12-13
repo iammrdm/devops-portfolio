@@ -19,5 +19,7 @@ jobs:
 workflows:
   aws-cli:
     jobs:
-      - aws-cli:
+      - aws-cli-setup:
           context: aws
+      - start-instance:
+          context: starting-instance
