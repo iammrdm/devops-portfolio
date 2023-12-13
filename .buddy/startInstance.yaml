@@ -1,0 +1,4 @@
+- pipeline: "Start POS Backend Instance"
+  on: "CLICK"
+  refs:
+  - "refs/heads/main"
