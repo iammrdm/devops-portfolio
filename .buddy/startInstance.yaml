@@ -7,8 +7,7 @@
   
   tags:
     - "start-instance"
-
-  trigger_conditions: "ALWAYS"
+  trigger_condition: "ALWAYS"
 
   variables:
     - key: "instance_id"
@@ -37,3 +36,4 @@
       execute_commands:
         - "curl "
       shell: "BASH"
+      
