@@ -4,6 +4,7 @@
     - type: "PUSH"
       refs:
         - "refs/heads/bash-scripts"
+  worker_assigntment: "*"
   trigger_condition: "ALWAYS"
 
   variables:
