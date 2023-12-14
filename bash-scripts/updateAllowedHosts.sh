@@ -10,9 +10,9 @@ echo -e "[INFO] ${slack_webhook_url}"
 
 echo ${getIP} > /tmp/publicIP.txt
 
-sed -i "s/change_me/${getIP}/g" /opt/pos-super-admin/api/settings.py
+sed -i "s/change_me/${getIP}/g"  /home/ec2-user/pos-super-admin/api/settings.py
 
-bash /opt/devops-portfolio/bash-scripts/runPythonBackground.sh
+bash  /home/ec2-user/devops-portfolio/bash-scripts/runPythonBackground.sh
 sleep 5
 
-bash /opt/devops-portfolio/bash-scripts/slackNotify.sh pos ${getIP}:8000 ${slack_webhook_url}
+bash  /home/ec2-user/devops-portfolio/bash-scripts/slackNotify.sh pos ${getIP}:8000 ${slack_webhook_url}
