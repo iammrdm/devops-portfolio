@@ -5,10 +5,10 @@
   worker_assigntment: "*"
   trigger_condition: "ALWAYS"
 
-  variables:
-    - key: "AWS_INSTANCE_ID"
-      value: "${instance_id}"
-      settable: true
+  # variables:
+  #   - key: "AWS_INSTANCE_ID"
+  #     value: "${instance_id}"
+  #     settable: true
 
   actions:
     - action:  Start Instance
