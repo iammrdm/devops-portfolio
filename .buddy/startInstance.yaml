@@ -1,9 +1,7 @@
 - pipeline: "Start POS Backend Instance"
   on: "CLICK"
-  event:
-    - type: "PUSH"
-      refs:
-        - "refs/heads/bash-scripts"
+  refs:
+    - "refs/heads/bash-scripts"
   worker_assigntment: "*"
   trigger_condition: "ALWAYS"
 
