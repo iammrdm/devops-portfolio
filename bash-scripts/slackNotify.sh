@@ -17,7 +17,7 @@ sendPublicIPNotif() {
     ${slackChannelWebHook}
 }
 
-case ${slackMessage} in
+case ${type} in
     instance)
         sendInstanceNotif
     ;;

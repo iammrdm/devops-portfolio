@@ -5,7 +5,6 @@ set -e
 instanceID=$1
 instanceOperation=$2
 slackChannelWebHook=$3
-notifType=$4
 
 checkInstance() {
     instanceState=`aws ec2 describe-instance-status --instance-id ${instanceID} | grep -o running`
@@ -35,13 +34,13 @@ case ${instanceOperation} in
                 then
                     echo -e "[INFO] Instance is already ${instanceState}."
                         bash ./bash-scripts/slackNotify.sh instance ${instanceState} ${slackChannelWebHook}
-                    echo -e "[INFO] Instance Public IP is ${instanceState}."
-                        bash ./bash-scripts/slackNotify.sh publicip ${instanceState} ${slackChannelWebHook}
+                    echo -e "[INFO] Instance Public IP is ${getPublicIP}."
+                        bash ./bash-scripts/slackNotify.sh publicip ${getPublicIP} ${slackChannelWebHook}
                 else
                     startInstance           
-                        bash ./bash-scripts/slackNotify.sh instance ${instanceState} ${slackChannelWebHook}
-                    echo -e "[INFO] Instance Public IP is ${instanceState}."
-                        bash ./bash-scripts/slackNotify.sh publicip ${instanceState} ${slackChannelWebHook}
+                        bash ./bash-scripts/slackNotify.sh instance ${getPublicIP} ${slackChannelWebHook}
+                    echo -e "[INFO] Instance Public IP is ${getPublicIP}."
+                        bash ./bash-scripts/slackNotify.sh publicip ${getPublicIP} ${slackChannelWebHook}
             fi          
     ;;
 
@@ -60,8 +59,8 @@ case ${instanceOperation} in
 
     getIP)
         getPublicIP=$(getPublicIP)
-            echo -e "[INFO] Instance Public IP is ${instanceState}."
-                bash ./bash-scripts/slackNotify.sh publicip ${instanceState} ${slackChannelWebHook}
+            echo -e "[INFO] Instance Public IP is ${getPublicIP}."
+                bash ./bash-scripts/slackNotify.sh publicip ${getPublicIP} ${slackChannelWebHook}
     ;;
     
     *)
