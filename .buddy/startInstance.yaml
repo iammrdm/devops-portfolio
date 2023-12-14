@@ -1,5 +1,5 @@
 - pipeline: "Start POS Backend Instance"
-  on: "EVENT"
+  on: "CLICK"
   event:
     - type: "PUSH"
       refs:
