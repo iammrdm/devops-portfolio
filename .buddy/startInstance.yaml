@@ -5,11 +5,6 @@
   worker_assigntment: "*"
   trigger_condition: "ALWAYS"
 
-  # variables:
-  #   - key: "AWS_INSTANCE_ID"
-  #     value: "${instance_id}"
-  #     settable: true
-
   actions:
     - action:  Start Instance
       type: AWS_CLI_2
@@ -19,13 +14,3 @@
       execute_commands:
         - apt-get update && apt-get install -y curl
         - bash ./bash-scripts/instance-operation.sh ${AWS_INSTANCE_ID} start ${SLACK_WEBHOOK_URL}
-
-    # - action: "Send notification"
-    #   type: "BUILD"
-    #   docker_image_name: "library/ubuntu"
-    #   docker_image_tag: "20.04"
-    #   setup_commands:
-    #     - apt-get update && apt-get install -y curl
-    #   execute_commands:
-    #     - curl 
-    #   shell: "BASH"
