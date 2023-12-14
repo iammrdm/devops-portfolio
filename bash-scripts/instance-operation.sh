@@ -23,7 +23,7 @@ stopInstance() {
 
 getPublicIP() {
     getPublicIPv4=`aws --region ap-southeast-1 ec2 describe-instances --filters "Name=instance-state-name,Values=running" "Name=instance-id,Values=${instanceID}" --query 'Reservations[*].Instances[*].[PublicIpAddress]' --output text`
-    echo -e "${instanceID}"
+    echo -e "${getPublicIPv4}"
 }
 
 case ${instanceOperation} in
