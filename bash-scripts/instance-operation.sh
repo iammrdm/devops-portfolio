@@ -22,7 +22,7 @@ stopInstance() {
 }
 
 getPublicIP() {
-    getPublicIPv4=`aws ec2 describe-instance-status --instance-id ${instanceID} --query 'Reservations[*].Instances[*].PublicIpAddress' --output text`
+    getPublicIPv4=`aws --region ap-southeast-1 ec2 describe-instances --filters "Name=instance-state-name,Values=running" "Name=instance-id,Values=${instanceID}" --query 'Reservations[*].Instances[*].[PublicIpAddress]' --output text`
     echo -e "${instanceID}"
 }
 
@@ -38,7 +38,7 @@ case ${instanceOperation} in
                         bash ./bash-scripts/slackNotify.sh publicip ${getPublicIP} ${slackChannelWebHook}
                 else
                     startInstance           
-                        bash ./bash-scripts/slackNotify.sh instance ${getPublicIP} ${slackChannelWebHook}
+                        bash ./bash-scripts/slackNotify.sh instance ${instanceState} ${slackChannelWebHook}
                     echo -e "[INFO] Instance Public IP is ${getPublicIP}."
                         bash ./bash-scripts/slackNotify.sh publicip ${getPublicIP} ${slackChannelWebHook}
             fi          
