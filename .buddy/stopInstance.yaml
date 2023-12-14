@@ -1,0 +1,4 @@
+- pipeline: "Stop POS Backend Instance"
+  on: "CLICK"
+  refs:
+  - "refs/heads/bash-scripts"
