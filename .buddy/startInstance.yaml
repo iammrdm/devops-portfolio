@@ -1,12 +1,9 @@
 - pipeline: "Start POS Backend Instance"
-  on: "CLICK"
+  on: "EVENT"
   event:
     - type: "PUSH"
       refs:
         - "refs/heads/bash-scripts"
-  
-  tags:
-    - "start-instance"
   trigger_condition: "ALWAYS"
 
   variables:
@@ -36,4 +33,3 @@
       execute_commands:
         - "curl "
       shell: "BASH"
-      
