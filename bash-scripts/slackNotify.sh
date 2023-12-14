@@ -1,8 +1,29 @@
 #!/bin/bash
 
-slackMessage=${1}
-slackChannelWebHook=${2}
+type=${1}
+slackMessage=${2}
+slackChannelWebHook=${3}
 
- curl -X POST -H 'Content-type: application/text' \
-  -d '{"text": "Instance state is '${slackMessage}'"}' \
-  ${slackChannelWebHook}
+
+sendInstanceNotif() {
+    curl -X POST -H 'Content-type: application/text' \
+    -d '{"text": "Instance state is '${slackMessage}'"}' \
+    ${slackChannelWebHook}
+}
+
+sendPublicIPNotif() {
+    curl -X POST -H 'Content-type: application/text' \
+    -d '{"text": "Instance Public IP is '${slackMessage}'"}' \
+    ${slackChannelWebHook}
+}
+
+case ${slackMessage} in
+    instance)
+        sendInstanceNotif
+    ;;
+
+    publicip)
+        sendPublicIPNotif
+    ;;
+
+esac
