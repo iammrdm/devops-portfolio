@@ -1,4 +1,39 @@
 - pipeline: "Start POS Backend Instance"
   on: "CLICK"
-  refs:
-  - "refs/heads/bash-scripts"
+  event:
+    - type: "PUSH"
+      refs:
+        - "refs/heads/bash-scripts"
+  
+  tags:
+    - "start-instance"
+
+  trigger_conditions: "ALWAYS"
+
+  variables:
+    - key: "instance_id"
+      value: "${instance_id}"
+      settable: true
+    - key: "slack_webhook_url"
+      value: "${instance_id}"
+      settable: true
+
+  actions:
+    - action:  Start Instance
+      type: AWS_CLI_2
+      trigger_conditions: "ALWAYS"
+      region: "ap-southeast-1"
+      integration_hash: "xWOBqnkEKQe1ERwqeJYvV0AZPX"
+      execute_commands:
+        - "apt-get update && apt-get install -y curl"
+        - "aws s3 ls"
+
+    - action: "Send notification"
+      type: "BUILD"
+      docker_image_name: "library/ubuntu"
+      docker_image_tag: "20.04"
+      setup_commands:
+        - "apt-get update && apt-get install -y curl"
+      execute_commands:
+        - "curl "
+      shell: "BASH"
