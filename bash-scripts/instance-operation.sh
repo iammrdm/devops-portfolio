@@ -49,7 +49,7 @@ case ${instanceOperation} in
             if [[ ${instanceState} == "running"  ]]
                 then
                     stopInstance
-                        bash  ./bash-scripts/slackNotify.sh instance ${instanceState} ${slackChannelWebHook}
+                        bash  ./bash-scripts/slackNotify.sh instance stopped ${slackChannelWebHook}
                 else
                     echo -e "[INFO] Instance is already stopped."
                         bash ./bash-scripts/slackNotify.sh instance stopped ${slackChannelWebHook}
