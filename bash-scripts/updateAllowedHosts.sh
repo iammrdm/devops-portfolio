@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source ~/.bash_profile
+
 getIP=`curl http://checkip.amazonaws.com`
 slack_webhook_url=`echo ${slack_webhook_url}`
 
