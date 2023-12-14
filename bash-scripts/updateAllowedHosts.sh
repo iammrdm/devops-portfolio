@@ -1,6 +1,7 @@
 #!/bin/bash
 
 getIP=`curl http://checkip.amazonaws.com`
+vim=`echo ${slack_webhook_url}`
 
 sed -i "s/change_me/${getIP}/g" /opt/pos-super-admin/api/settings.py
 
