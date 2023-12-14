@@ -6,11 +6,8 @@
   trigger_condition: "ALWAYS"
 
   variables:
-    - key: "instance_id"
+    - key: "AWS_INSTANCE_ID"
       value: "${instance_id}"
-      settable: true
-    - key: "slack_webhook_url"
-      value: "${slack_webhook_url}"
       settable: true
 
   actions:
