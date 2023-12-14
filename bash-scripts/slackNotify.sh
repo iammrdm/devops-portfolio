@@ -17,6 +17,12 @@ sendPublicIPNotif() {
     ${slackChannelWebHook}
 }
 
+posUrl() {
+    curl -X POST -H 'Content-type: application/text' \
+    -d '{"text": "POS can be accessed at '${slackMessage}'"}' \
+    ${slackChannelWebHook}
+}
+
 case ${type} in
     instance)
         sendInstanceNotif
@@ -24,6 +30,10 @@ case ${type} in
 
     publicip)
         sendPublicIPNotif
+    ;;
+
+    pos)
+        posUrl
     ;;
 
 esac
