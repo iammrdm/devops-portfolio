@@ -17,7 +17,7 @@
   actions:
     - action:  Start Instance
       type: AWS_CLI_2
-      trigger_conditions: "ALWAYS"
+      trigger_conditions: ALWAYS
       region: "ap-southeast-1"
       integration_hash: "xWOBqnkEKQe1ERwqeJYvV0AZPX"
       execute_commands:
