@@ -21,15 +21,15 @@
       region: "ap-southeast-1"
       integration_hash: "xWOBqnkEKQe1ERwqeJYvV0AZPX"
       execute_commands:
-        - "apt-get update && apt-get install -y curl"
-        - "aws s3 ls"
+        - apt-get update && apt-get install -y curl
+        - aws s3 ls
 
     - action: "Send notification"
       type: "BUILD"
       docker_image_name: "library/ubuntu"
       docker_image_tag: "20.04"
       setup_commands:
-        - "apt-get update && apt-get install -y curl"
+        - apt-get update && apt-get install -y curl
       execute_commands:
-        - "curl "
+        - curl 
       shell: "BASH"
