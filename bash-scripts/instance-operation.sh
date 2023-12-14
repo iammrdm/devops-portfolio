@@ -65,7 +65,7 @@ case ${instanceOperation} in
     
     *)
         echo -e "[INFO] Usage: ./instance-operations.sh <instance_id> <operation>"
-        echo -e "[INFO] Usage: ./instance-operations.sh i-awsdf9879879 start"
+        echo -e "[INFO] Usage: ./instance-operations.sh i-awsdf9879879 start|stop|getIP"
     ;;
 esac
 
