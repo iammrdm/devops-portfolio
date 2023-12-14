@@ -2,4 +2,4 @@
 
 getIP=`curl http://checkip.amazonaws.com`
 
-cat /opt/pos-super-admin/api/settings.py
+sed -i "s/change_me/${getIP}/g" /opt/pos-super-admin/api/settings.py
