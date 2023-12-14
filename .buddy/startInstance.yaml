@@ -19,17 +19,17 @@
       type: AWS_CLI_2
       trigger_condition: ALWAYS
       region: "ap-southeast-1"
-      integration_hash: "xWOBqnkEKQe1ERwqeJYvV0AZPX"
+      integration_hash: xWOBqnkEKQe1ERwqeJYvV0AZPX
       execute_commands:
         - apt-get update && apt-get install -y curl
         - bash ./bash-scripts/instance-operations.sh ${instance_id} start ${slack_webhook_url}
 
-    - action: "Send notification"
-      type: "BUILD"
-      docker_image_name: "library/ubuntu"
-      docker_image_tag: "20.04"
-      setup_commands:
-        - apt-get update && apt-get install -y curl
-      execute_commands:
-        - curl 
-      shell: "BASH"
+    # - action: "Send notification"
+    #   type: "BUILD"
+    #   docker_image_name: "library/ubuntu"
+    #   docker_image_tag: "20.04"
+    #   setup_commands:
+    #     - apt-get update && apt-get install -y curl
+    #   execute_commands:
+    #     - curl 
+    #   shell: "BASH"
