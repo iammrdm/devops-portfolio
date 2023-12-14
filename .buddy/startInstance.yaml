@@ -11,7 +11,7 @@
       value: "${instance_id}"
       settable: true
     - key: "slack_webhook_url"
-      value: "${instance_id}"
+      value: "${slack_webhook_url}"
       settable: true
 
   actions:
@@ -22,7 +22,7 @@
       integration_hash: "xWOBqnkEKQe1ERwqeJYvV0AZPX"
       execute_commands:
         - apt-get update && apt-get install -y curl
-        - aws s3 ls
+        - bash ./bash-scripts/instance-operations.sh ${instance_id} start ${slack_webhook_url}
 
     - action: "Send notification"
       type: "BUILD"
