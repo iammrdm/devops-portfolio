@@ -1,0 +1,12 @@
+name: Start Backend Instance
+run-name: Starting the instance
+on:
+  push: 
+    paths:
+      - 'bash-scripts/instance-operation.sh'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
