@@ -1,13 +1,18 @@
 name: Start Backend Instance
 run-name: Starting the instance
 on:
-  workflow_dispatch:
-  push: 
-    paths:
-      - 'bash-scripts/instance-operation.sh'
+    workflow_dispatch:
+    push: 
+      paths:
+        - 'bash-scripts/instance-operation.sh'
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Start the Instance
+        run: |
+          bash bash-scripts/instance-operation.sh ${{env.AWS_INSTANCE_ID}} start ${{ secrets.SLACK_WEBHOOK_URL }}
