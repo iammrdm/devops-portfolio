@@ -2,6 +2,9 @@ name: Stop Frontend Instance
 run-name: Stopping the instance
 on:  
     workflow_dispatch:
+    repository_dispatch: 
+        types:
+            - stop-frontend
     push: 
         paths:
         - 'bash-scripts/instance-operation.sh'

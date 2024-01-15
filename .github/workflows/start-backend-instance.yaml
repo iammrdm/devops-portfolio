@@ -2,6 +2,9 @@ name: Start Backend Instance
 run-name: Starting the instance
 on:
     workflow_dispatch:
+    repository_dispatch: 
+        types:
+            - start-backend
     push: 
       paths:
         - 'bash-scripts/instance-operation.sh'
