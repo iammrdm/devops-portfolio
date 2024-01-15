@@ -23,6 +23,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Start the Instance
+      - name: Stop the Instance
         run: |
           bash bash-scripts/instance-operation.sh ${{ vars.AWS_INSTANCE_ID }} stop ${{ vars.SLACK_WEBHOOK_URL }}
