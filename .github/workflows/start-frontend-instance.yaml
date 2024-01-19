@@ -25,4 +25,4 @@ jobs:
 
       - name: Start the Instance
         run: |
-          bash bash-scripts/instance-operation.sh ${{ vars.AWS_INSTANCE_ID_FRONTEND }} start ${{ vars.SLACK_WEBHOOK_URL }}
+          bash bash-scripts/instance-operation.sh ${{ vars.AWS_INSTANCE_ID_FRONTEND }} start ${{ vars.SLACK_WEBHOOK_URL }} frontend
