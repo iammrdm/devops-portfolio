@@ -27,5 +27,8 @@ sleep 5
 cd /home/ec2-user/pos-management && docker build -t iammrdm/laundry-pos:management-prod-latest .
 sleep 5
 
+docker-compose -f /home/ec2-user/pos-management/docker-compose.yaml up -d
+sleep 5
+
 bash  /home/ec2-user/devops-portfolio/bash-scripts/slackNotify.sh frontend management ${managementIP}:8081 ${slack_webhook_url}
 
