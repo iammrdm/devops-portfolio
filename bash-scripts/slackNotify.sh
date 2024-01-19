@@ -1,9 +1,10 @@
 #!/bin/bash
 
-type=${1}
-slackMessage=${2}
-slackChannelWebHook=${3}
-serverType=${4}
+serverType=${1}
+type=${2}
+slackMessage=${3}
+slackChannelWebHook=${4}
+
 
 
 sendInstanceNotif() {
@@ -14,7 +15,7 @@ sendInstanceNotif() {
 
 sendPublicIPNotif() {
     curl -X POST -H 'Content-type: application/text' \
-    -d '{"text": "'${serverType}'Instance Public IP is '${slackMessage}'"}' \
+    -d '{"text": "'${serverType}' Instance Public IP is '${slackMessage}'"}' \
     ${slackChannelWebHook}
 }
 

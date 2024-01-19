@@ -5,9 +5,9 @@ on:
     repository_dispatch: 
         types:
             - stop-backend
-    push: 
-        paths:
-        - 'bash-scripts/instance-operation.sh'
+    # push: 
+    #     paths:
+    #     - 'bash-scripts/instance-operation.sh'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -25,4 +25,4 @@ jobs:
 
       - name: Stop the Instance
         run: |
-          bash bash-scripts/instance-operation.sh ${{ vars.AWS_INSTANCE_ID }} stop ${{ vars.SLACK_WEBHOOK_URL }} backend
+          bash bash-scripts/instance-operation.sh backend ${{ vars.AWS_INSTANCE_ID }} stop ${{ vars.SLACK_WEBHOOK_URL }}
