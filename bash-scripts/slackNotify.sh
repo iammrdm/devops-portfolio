@@ -25,6 +25,12 @@ posUrl() {
     ${slackChannelWebHook}
 }
 
+posManagementUrl() {
+    curl -X POST -H 'Content-type: application/text' \
+    -d '{"text": "'${serverType}' POS Management can be accessed at '${slackMessage}'"}' \
+    ${slackChannelWebHook}
+}
+
 case ${type} in
     instance)
         sendInstanceNotif
@@ -36,6 +42,10 @@ case ${type} in
 
     pos)
         posUrl
+    ;;
+
+    management)
+        posManagementUrl
     ;;
 
 esac
