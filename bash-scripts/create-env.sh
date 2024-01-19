@@ -18,6 +18,7 @@ echo "API new IP: ${getAPIPublicIPv4}"
 echo ${getAPIPublicIPv4}  > /home/ec2-user/apiPublicIp.txt
 
 sed -i "s/${apiOldIP}/${getAPIPublicIPv4}/g"  /etc/hosts
+sed -i "s/localhost/${getAPIPublicIPv4}/g"  /home/ec2-home/pos-management/docker-compose.yaml
 
 bash  /home/ec2-user/devops-portfolio/bash-scripts/slackNotify.sh frontend management ${managementIP}:8081 ${slack_webhook_url}
 
